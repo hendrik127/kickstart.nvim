@@ -241,7 +241,9 @@ sudo pacman -S --noconfirm --needed gcc make git ripgrep fd unzip neovim
 git remote add upstream https://github.com/nvim-lua/kickstart.nvim.git
 
 ### Sync your fork
-git fetch upstream
-git checkout master
-git merge upstream/master
+ - git fetch upstream
+
+ - git checkout master
+
+ - git merge upstream/master
 
