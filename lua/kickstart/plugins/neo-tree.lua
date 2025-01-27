@@ -18,8 +18,25 @@ return {
       window = {
         mappings = {
           ['\\'] = 'close_window',
+          ['h'] = 'close_node', -- Close the current folder
+          ['l'] = 'open', -- Open the current folder
         },
       },
     },
   },
+  init = function()
+    -- Auto-open NeoTree when a directory is opened in Neovim
+    vim.api.nvim_create_autocmd('VimEnter', {
+      callback = function(data)
+        -- Check if the file is a directory
+        local directory = vim.fn.isdirectory(data.file) == 1
+        if directory then
+          -- Change to the directory
+          vim.cmd.cd(data.file)
+          -- Open NeoTree
+          vim.cmd 'Neotree reveal'
+        end
+      end,
+    })
+  end,
 }
