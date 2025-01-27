@@ -236,3 +236,12 @@ sudo pacman -S --noconfirm --needed gcc make git ripgrep fd unzip neovim
 ```
 </details>
 
+# update
+### Add a new remote upstream repository
+git remote add upstream https://github.com/ORIGINAL_OWNER/ORIGINAL_REPOSITORY.git
+
+### Sync your fork
+git fetch upstream
+git checkout master
+git merge upstream/master
+
